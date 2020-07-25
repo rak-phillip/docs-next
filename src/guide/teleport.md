@@ -2,7 +2,7 @@
 
 Vue encourages us to build our UIs by encapsulating UI and related behavior into components. We can nest them inside one another to build a tree that makes up an application UI.
 
-However, sometimes a part of a component's template belongs into this component logically, while from a technical point of view, it would be preferable to move this part of the template somewhere else in the DOM, outside of Vue app. For example, due to styling requirements, we want to move `<p id="content">` from it's deeply nested position to the `<div>` with `id="endofbody"`
+While this is usually how we want to structure our components, in some cases it would be preferable, from a technical point of view, to place part of a component's template somewhere else in the DOM, outside of Vue app, even though that part of the template might logically belong in its original location. For example, we want to move `<p id="content">` from its deeply nested position to the `<div>` with `id="endofbody"` to fulfill some styling requirements:
 
 ```html
 <body>
@@ -38,7 +38,7 @@ To do so, we can use Vue's built-in `<teleport>` component:
 </body>
 ```
 
-As a result, we will have `teleport` content moved in the rendered DOM tree:
+As a result, we will have moved the content of `teleport` in the rendered DOM tree:
 
 <p class="codepen" data-height="300" data-theme-id="39028" data-default-tab="html,result" data-user="Vue" data-slug-hash="WNrXYXd" data-preview="true" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Teleport">
   <span>See the Pen <a href="https://codepen.io/team/Vue/pen/WNrXYXd">
